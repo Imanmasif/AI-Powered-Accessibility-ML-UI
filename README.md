@@ -6,7 +6,7 @@
 
 ## Overview
 
-This repository accompanies the paper **AI-Powered Accessibility: Evaluating the Role of Machine Learning in Inclusive User Interface Design**, published in *Artificial Intelligence in HCI*, Lecture Notes in Computer Science, volume 16746, Springer, 2026.
+This repository accompanies the paper **AI-Powered Accessibility: Evaluating the Role of Machine Learning in Inclusive User Interface Design**, published in *Artificial Intelligence in HCI*, Lecture Notes in Computer Science, volume 16746, Springer, 2026, pp. 71–90.
 
 The work introduces **AdaptiveUI**, a browser-based accessibility approach that uses supervised machine learning to estimate text legibility and then performs real-time colour-contrast adjustments within active web interfaces.
 
@@ -40,21 +40,13 @@ The paper describes a lightweight supervised regression approach rather than a l
 - element type and interaction state
 - contextual conditions such as text over images or gradients
 
-An ensemble model such as **Random Forest or Gradient Boosting** is considered because the system requires low-latency inference and interpretable feature behaviour.
+The paper proposes an ensemble regression model such as **Random Forest or Gradient Boosting** because the system requires low-latency inference and interpretable feature behaviour.
 
 ## Contrast optimisation
 
 When predicted readability falls below a user-specific threshold, AdaptiveUI performs a constrained search for an alternative colour. The search prioritises minimal perceptual change while attempting to satisfy the required readability level.
 
-The paper combines:
-
-- supervised readability prediction
-- perceptually guided colour adjustment
-- user-specific thresholds
-- runtime DOM/style updates
-- accessibility-oriented constraints
-
-This makes the work different from a conventional static contrast checker or an offline colour recommendation tool.
+The paper combines supervised readability prediction, perceptually guided colour adjustment, user-specific thresholds, runtime DOM/style updates, and accessibility-oriented constraints.
 
 ## Personalisation
 
@@ -64,36 +56,29 @@ Future versions could learn or refine these preferences from user behaviour, suc
 
 ## Evaluation
 
-The paper describes an evaluation using a within-subject comparison between:
+The paper describes a within-subject comparison between:
 
 - **Baseline:** the original interface without adaptive contrast correction
 - **Adaptive:** the interface with AdaptiveUI's real-time contrast adjustments
 
-The evaluation focuses on visually impaired users, with a smaller sighted control group considered for detecting unintended usability effects.
+The primary evaluation population is visually impaired participants, with a smaller sighted control group considered for detecting unintended usability effects.
 
-The primary measures are:
+The primary measures are task completion time, task success, and perceived readability. Secondary measures include error rates, the amount of interface modification, perceptual colour distance, trust and acceptability, and qualitative feedback.
 
-- task completion time
-- task success
-- perceived readability
+The paper reports improvement in task performance, error rates, and perceived readability under the adaptive condition. The paper does not provide a numerical results table suitable for reproducing participant-level statistics here, so this repository does not invent numerical effect sizes, p-values, or participant counts.
 
-Secondary measures include error rates, the amount of interface modification, perceptual colour distance, trust, and acceptability.
+## Documentation
 
-The paper reports improvement in task performance, error rates, and perceived readability under the adaptive condition. The work also discusses limitations and the need for broader evaluation beyond colour contrast.
+- [Research summary](docs/research-summary.md)
+- [System design](docs/system-design.md)
+- [Evaluation framework](docs/evaluation.md)
+- [Limitations and future work](docs/limitations-and-future-work.md)
 
 ## Standards and accessibility scope
 
 The research is aligned with the broader WCAG accessibility context and focuses on colour contrast and readability during interaction. It is intentionally narrower than a complete accessibility framework.
 
-Future work identified in the paper includes extending the approach toward:
-
-- typography and text scaling
-- spacing and layout adaptation
-- semantic hierarchy
-- motion reduction
-- alternative text and other accessibility dimensions
-- richer user-specific calibration
-- semantic-aware optimisation using design-system or ARIA information
+Future work identified in the paper includes extending the approach toward typography and text scaling, spacing and layout adaptation, semantic hierarchy, motion reduction, alternative text and other accessibility dimensions, richer user-specific calibration, and semantic-aware optimisation using design-system or ARIA information.
 
 ## Repository scope
 
